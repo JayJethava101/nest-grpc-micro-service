@@ -1,0 +1,39 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "API Gateway for NestJS Microservices",
+  "scripts": {
+    "build": "nest build && npm run copy-proto",
+    "copy-proto": "copyfiles -u 1 src/proto/*.proto dist/",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.4",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^8.4.7",
+    "@nestjs/microservices": "^8.4.7",
+    "@nestjs/platform-express": "^8.2.3",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.0.0",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.3.1",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.42.0",
+    "prettier": "^3.0.0",
+    "ts-loader": "^9.4.3",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.1.3"
+  }
+}
