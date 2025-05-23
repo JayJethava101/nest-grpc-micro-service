@@ -1,11 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
 import { Inject } from '@nestjs/common';
-import { CreateUserDto, UpdateUserDto, User } from '../interfaces/user.interface';
+import { CreateUserDto, UpdateUserDto } from './dto/user.dto';
+import { User, IUserService } from 'src/interfaces/user.interface';
+
 
 @Injectable()
 export class UserService {
-  private userService: any;
+  private userService: IUserService;
 
   constructor(@Inject('USER_PACKAGE') private client: ClientGrpc) {
     this.userService = this.client.getService('UserService');

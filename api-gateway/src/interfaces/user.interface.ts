@@ -1,3 +1,5 @@
+import { CreateUserDto, UpdateUserDto } from "src/user/dto/user.dto";
+
 export interface User {
   id: string;
   email: string;
@@ -6,19 +8,9 @@ export interface User {
   updatedAt: Date;
 }
 
-export interface CreateUserDto {
-  email: string;
-  name: string;
-  password: string;
+export interface IUserService {
+  createUser(createUserDto: CreateUserDto): Promise<User>;
+  getUser(data: { id: string }): Promise<User>;
+  updateUser(data: { id: string } & UpdateUserDto): Promise<User>;
+  deleteUser(data: { id: string }): Promise<void>;
 }
-
-export interface UpdateUserDto {
-  email?: string;
-  name?: string;
-  password?: string;
-}
-
-export interface UserResponse {
-  user: User;
-  message: string;
-} 
